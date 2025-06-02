@@ -1,6 +1,5 @@
-import './App.css'
-
-import Post from './components/post';
+import Header from './components/Header';
+import Post from './components/Post';
 
 
 export default function App() {
@@ -98,18 +97,22 @@ export default function App() {
   ];
 
   return (
-    <main>
-      <div id='feed'>
-        {posts.map((p, i) => (
-          <Post
-            key={i}
-            author={p.author}
-            content={p.content}
-            created_at={p.created_at}
-            edited={p.edited}
-          />
-        ))}
-      </div>
-    </main>
+    <>
+      <Header />
+
+      <main>
+        <div id='feed'>
+          {posts.map((p, i) => (
+            <Post
+              key={i}
+              author={p.author}
+              content={p.content}
+              created_at={p.created_at}
+              edited={p.edited}
+            />
+          ))}
+        </div>
+      </main>
+    </>
   );
 };
