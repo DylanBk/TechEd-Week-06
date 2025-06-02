@@ -1,0 +1,75 @@
+:root {
+  --bg: #121212;
+  --card-bg: #1e1e1e;
+  --shine: #2e2e2e;
+
+  /* dark modern colour theme */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: var(--bg);
+  overflow-y: hidden;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#feed {
+  min-height: 80%;
+  max-height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.post {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background: var(--card-bg);
+  color: #fff;
+  transition: all 0.3s;
+}
+.post:hover {
+  background: var(--shine);
+}
+
+.post div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post p {
+  text-align: left;
+}
+
+.post p#author {
+  font-weight: 600;
+}
+
+.post p#edited {
+  color: #888;
+  font-size: 0.75rem;
+}
