@@ -51,13 +51,17 @@ const App = () => {
     );
   };
 
-  const handleModalToggle = (
-    e: React.MouseEvent<HTMLImageElement | HTMLButtonElement>
+  const handleModalToggle = (e?:
+    React.MouseEvent<HTMLImageElement | HTMLButtonElement>
+    |
+    React.KeyboardEvent<HTMLImageElement | HTMLButtonElement | HTMLDivElement>
   ) => {
-    e.preventDefault();
-    if (e.currentTarget instanceof HTMLImageElement) {
+    e?.preventDefault();
+
+    if (e?.currentTarget instanceof HTMLImageElement) {
       setModalData({ src: e.currentTarget.src });
-    }
+    };
+
     setIsModalVisible(!isModalVisible);
   };
 

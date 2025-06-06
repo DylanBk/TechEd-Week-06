@@ -3,7 +3,7 @@ type Props = {
     src: string;
     loaded: boolean;
     handleLoad: () => void;
-    handleClick: (e: React.MouseEvent<HTMLImageElement>) => void;
+    handleClick: (e: React.MouseEvent<HTMLImageElement> | React.KeyboardEvent<HTMLImageElement>) => void;
 };
 
 const Photo = (props: Props) => {
@@ -13,13 +13,15 @@ const Photo = (props: Props) => {
             <div className='absolute inset-0 rounded-sm bg-gray-300 animate-pulse' />
         )}
 
-        {props.src && (
+            {props.src && (
             <img
-                className={`h-full w-full object-cover rounded-sm ${props.loaded ? 'opacity-100' : 'opacity-0'} hover:scale-105 transition-transform cursor-pointer`}
+                className={`h-full w-full object-cover rounded-sm ${props.loaded ? 'opacity-100' : 'opacity-0'} hover:scale-105 focus:scale-105 transition-transform cursor-pointer`}
                 src={props.src}
                 alt='A photo from picsum'
                 onClick={props.handleClick}
+                onKeyDown={(e) => e.key === 'Enter' && props.handleClick(e)}
                 onLoad={props.handleLoad}
+                tabIndex={0}
             />
         )}
     </div>
