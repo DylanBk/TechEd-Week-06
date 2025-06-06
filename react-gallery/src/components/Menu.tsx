@@ -11,17 +11,23 @@ const Menu = (props: Props) => {
 
     return (
         <section className='h-28 sm:h-16 w-16 sm:w-28 fixed right-4 bottom-4 z-10 flex flex-col sm:flex-row gap-2 items-center justify-center sm:justify-evenly p-2 rounded-full bg-white shadow'>
-            <button onClick={handleToTop}>
+            <button
+                aria-label='Back to top'
+                onClick={handleToTop}>
                 <ArrowUp
                     className='icon'
                     size={32}
+                    aria-hidden='true'
                 />
             </button>
 
-            <button onClick={props.handleClick}>
+            <button
+                aria-label='Load more'
+                onClick={props.handleClick}>
                 <Plus
                     className='icon'
                     size={32}
+                    aria-hidden='true'
                 />
             </button>
         </section>
